@@ -1,0 +1,13 @@
+
+.cadastro-ideia {
+    height: 50px;
+    margin: 10px;
+}
+
+.btn-salvar{
+    text-align: center;
+    font-size: 1.2em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px; 
+}

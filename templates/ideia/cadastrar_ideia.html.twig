@@ -1,0 +1,36 @@
+{%  extends 'base.html.twig' %}
+
+{% block main %}
+
+<div class="container" id="" >
+
+ {{ form_start(form,{'attr': {'novalidate':'novalidate','class':'needs-validation, form-signin '}}) }}
+            
+                    
+                    {{ form_widget(form.titulo,  
+                    { 'attr': {
+                        'class': 'form-control cadastro-ideia',
+                        'placeholder':'Titulo do trabalho',
+                        'id':'cadastro-ideia-form-titulo'
+                    }})}} 
+                    
+                
+                                
+                    {{ form_widget(form.descricao, 
+                    { 'attr': {
+                        'class': 'form-control cadastro-ideia',
+                        'placeholder':'Descrição do trabalho',
+                        'style' : 'width:525px', 
+                        'rows' : '7', 
+                        
+                    }})}}  
+                                 
+                    
+                  
+
+    <button class="btn btn-salvar">{{ button_label|default('Salvar') }}</button>
+{{ form_end(form) }}
+
+</div>
+
+{% endblock %}

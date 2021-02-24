@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * @Route("/ideia")
@@ -33,20 +34,28 @@ class IdeiaController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $ideium = new Ideia();
-        $form = $this->createForm(IdeiaType::class, $ideium);
+        $ideia= new Ideia();
+        $form = $this->createForm(IdeiaType::class, $ideia);
         $form->handleRequest($request);
+
+        $autor = $this->get('security.token_storage')->getToken()->getUser();
+        $autor->getNome();
+
+        $ideia->setAutor($autor);
+
+
+        // var_dump($autor->getNome());
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($ideium);
+            $entityManager->persist($ideia);
             $entityManager->flush();
 
             return $this->redirectToRoute('ideia_index');
         }
 
-        return $this->render('ideia/new.html.twig', [
-            'ideium' => $ideium,
+        return $this->render('ideia/cadastrar_ideia.html.twig', [
+            'ideia' => $ideia,
             'form' => $form->createView(),
         ]);
     }

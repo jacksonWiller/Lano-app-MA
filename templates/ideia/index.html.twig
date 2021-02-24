@@ -22,6 +22,7 @@
                                 </div>
                             </div>
                         </div>
+                      
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
@@ -29,9 +30,16 @@
                                     <p class="card-text">{{ ideias.descricao }}</p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
-                                            <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                                                <i class="glyphicon glyphicon-trash"></i>
-                                            </a>
+                                            <form method="post" action="{{ path('ideia_delete', {'id': ideias.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ideias.id) }}">
+                                                <button class="btn" id="btn-delete" >
+                                                  <a class="social-icon text-xs-center" id="social-icon-delete" >
+                                                        <i class="glyphicon glyphicon-trash"></i>
+                                                  </a>
+                                                </button>
+                                            </form>
+                                            
                                         </li>
                                         <li class="list-inline-item">
                                             <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
@@ -52,6 +60,7 @@
                                 </div>
                             </div>
                         </div>
+                         
                     </div>
                 </div>
             </div>

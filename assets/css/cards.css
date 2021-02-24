@@ -175,6 +175,22 @@ section .section-title {
 }
 
 
+#btn-delete {
+    
+    background-color: transparent;
+    color: #3d85c6;
+    border-radius: 0.25rem;
+    border-color:transparent;
+    width: 50px;
+    height: 50px;
+    margin: -11px;
+}
+
+#social-icon-delete {
+    font-size: 30px;
+    margin: -13px;
+}
+
 
 /* ---------------------------------------------------
     MEDIAQUERIES

@@ -33,6 +33,7 @@ a, a:hover, a:focus {
 
 #content {
     background: #eee !important;
+    width: 100%;
 }
 
 .navbar {
