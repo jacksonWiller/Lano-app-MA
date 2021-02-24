@@ -1,0 +1,63 @@
+{% extends 'security/login_base.html.twig' %}
+
+{% block customstylesheets %}
+
+{% endblock %}
+{% block menu %}{% endblock %}
+{% block main %}
+
+
+<div class="card card-container">
+
+<img id="profile-img" class="profile-img-card" src="images/Logo Lano.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+
+       <form method="POST" action="{{path('login')}}" class="form-signin">
+        {{ form_start(form,{'attr': {'novalidate':'novalidate','class':'needs-validation, form-signin '}}) }}
+            
+                    
+                    {{ form_widget(form.email,  
+                    { 'attr': {
+                        'class': 'form-control',
+                        'placeholder':'Email Institucional IFNMG'
+                    }})}} 
+                    
+                
+                                
+                    {{ form_widget(form.nome, 
+                    { 'attr': {
+                        'class': 'form-control',
+                        'placeholder':'Nome'
+                    }})}}  
+                                 
+                    
+                    {{ form_widget(form.perfil, 
+                    { 'attr': {
+                        'class': 'form-control',
+                        'placeholder':'perfil'
+                    }})}} 
+
+                      <br>             
+          
+                {{ form_widget(form.password.first,  
+                { 'attr': {
+                        'class': 'form-control',
+                        'placeholder':'Senha'
+                    }})}} 
+               
+            
+                {{ form_widget(form.password.second, 
+                { 'attr': {
+                        'class': 'form-control',
+                        'placeholder':'Confirmar-Senha'
+                    }})}} 
+               
+            <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin">Criar Conta</button>
+         {{ form_end(form) }}
+         </form>
+
+</div>
+
+
+{% endblock %}
+{% block footer_links %}{% endblock %}

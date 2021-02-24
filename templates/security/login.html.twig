@@ -1,0 +1,43 @@
+{% extends 'security/login_base.html.twig' %}
+
+{% block customstylesheets %}
+
+{% endblock %}
+{% block menu %}{% endblock %}
+{% block main %}
+
+
+<div class="card card-container">
+
+<img id="profile-img" class="profile-img-card" src="images/Logo Lano.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+
+<form method="POST" action="{{path('login')}}" class="form-signin">
+    <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" name="_email" id="inputEmail" class="form-control" placeholder="Email Institucional IFNMG" required autofocus>
+                 
+                <input type="password" name="_password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Lembrar
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+                
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+</form>
+
+<a class="btn btn-lg btn-primary btn-block btn-signin" href="{{path("cadastro")}}" >Inscrever</a>
+
+<a href="#" class="forgot-password">
+    Esqueceu a Senha?
+</a>
+
+<p> 
+    email:admin@smail.loc
+    <br>
+    senha: admin
+<p>
+</div>
+{% endblock %}
+{% block footer_links %}{% endblock %}
